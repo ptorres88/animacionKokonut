@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Animación de kokonut stusio usando vivus.js y svg</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+</head>
+<body>
+  <!-- SVG DEL PATH DEL MUNDO Y EL TRÉN -->
+  <svg height="900" width="1000" id="camino">
+    <!-- representa el cometa y su animación -->
+    <circle cx="50" cy="50" r="10" fill="black">
+	  <animateTransform attributeType="xml"
+	                    attributeName="transform"
+	                    type="rotate"
+	                    from="0 120 120"
+	                    to="360 120 120"
+	                    dur="4s"
+	                    repeatCount="indefinite"/>
+    </circle>
+    <!-- representa el mundo -->
+    <circle cx="120" cy="120" r="80" stroke="black" stroke-width="3" fill="NONE" />
+    <path stroke-width="3" stroke="black" fill="transparent"
+    d="M120 200 L120 300 M120 300 C121,380 121,380 240,380 M240 380 H800 380 M800 380 C850,380 850,380 850,410 M850 410 L850 450 M850 450 C1000,450 1000,600 850,600"/>
+    <!-- representa el trén y su animación -->
+    <circle cx="930" cy="510" r="10" fill="black">
+	  <animateTransform attributeType="xml"
+	                    attributeName="transform"
+	                    type="rotate"
+	                    from="0 850 500"
+	                    to="90 850 500"
+	                    dur="1s"
+	                    repeatCount="1"/>
+    </circle>
+  </svg>
+</body>
+<script src="node_modules/vivus/dist/vivus.min.js" ></script>
+<script>
+//animación vivus
+
+var vivus = new Vivus('camino', {
+    type: 'oneByOne',
+    duration: 300,
+    start: 'autostart',
+    animTimingFunction: Vivus.EASE
+}, console.log("listo"));
+
+</script>
+</html>
